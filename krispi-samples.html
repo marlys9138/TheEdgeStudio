@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample Content for Krispi × Edge Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --krispi-orange: #E8732A;
+      --krispi-dark: #1A1A1A;
+      --krispi-warm: #FFF4EC;
+      --cream: #FAFAF7;
+      --charcoal: #2D2D2D;
+      --charcoal-light: #5A5A5A;
+      --white: #FFFFFF;
+      --forest: #1B3A2D;
+      --sage: #6B9E8A;
+      --sage-pale: #D4E8DE;
+    }
+
+    html { font-size: 16px; }
+    body { font-family: 'DM Sans', -apple-system, sans-serif; color: var(--charcoal); background: var(--cream); line-height: 1.7; }
+
+    .page { max-width: 820px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+
+    /* ── Cover ── */
+    .cover {
+      background: var(--krispi-dark); color: white; border-radius: 16px;
+      padding: 3rem; text-align: center; margin-bottom: 3rem;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(232,115,42,0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(232,115,42,0.12) 0%, transparent 40%);
+    }
+    .cover .from {
+      font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4);
+      margin-bottom: 1rem;
+    }
+    .cover h1 {
+      font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900;
+      text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.25; margin-bottom: 0.5rem;
+    }
+    .cover h1 em { color: var(--krispi-orange); font-style: normal; }
+    .cover .sub { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+
+    /* ── Headings ── */
+    h2 {
+      font-family: 'Montserrat', sans-serif; color: var(--krispi-dark); font-size: 1.3rem;
+      font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em;
+      margin: 3rem 0 0.5rem; padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--krispi-orange);
+    }
+    h3 { color: var(--krispi-dark); font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+    .note { color: var(--charcoal-light); font-size: 0.88rem; margin-bottom: 2rem; }
+
+    /* ── Visual grid ── */
+    .visual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; }
+    @media (max-width: 650px) { .visual-grid { grid-template-columns: 1fr; } }
+
+    .visual-label {
+      text-align: center; font-size: 0.72rem; color: var(--charcoal-light);
+      margin-top: 0.6rem; font-weight: 600;
+    }
+
+    /* ── Base IG post ── */
+    .ig-post {
+      width: 100%; max-width: 370px; aspect-ratio: 1013/1350; margin: 0 auto;
+      border-radius: 12px; overflow: hidden; position: relative;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 2.5rem 2rem;
+    }
+    .ig-post .logo-wm {
+      position: absolute; bottom: 16px; text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem; font-weight: 900; letter-spacing: 0.18em;
+      text-transform: uppercase; opacity: 0.35;
+    }
+
+    /* ── Post 1: Brand Hero ── */
+    .p-hero {
+      background: var(--krispi-dark);
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(232,115,42,0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(232,115,42,0.1) 0%, transparent 40%);
+    }
+    .p-hero .badge {
+      background: var(--krispi-orange); color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.55rem; font-weight: 800; padding: 5px 16px; border-radius: 20px;
+      letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.8rem;
+    }
+    .p-hero h2 {
+      font-family: 'Montserrat', sans-serif; color: white; font-size: 1.45rem;
+      text-align: center; line-height: 1.3; border: none; margin: 0 0 1rem; padding: 0;
+      font-weight: 900; text-transform: uppercase; letter-spacing: 0.02em;
+    }
+    .p-hero h2 em { color: var(--krispi-orange); font-style: normal; }
+    .p-hero .divider { width: 40px; height: 3px; background: var(--krispi-orange); margin: 0.5rem auto 1.2rem; border-radius: 2px; }
+    .p-hero .sub-text {
+      color: rgba(255,255,255,0.65); font-size: 0.78rem; text-align: center; line-height: 1.6;
+    }
+    .p-hero .cta-btn {
+      margin-top: 1.8rem; border: 1.5px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.06); color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem; font-weight: 700; padding: 10px 22px;
+      border-radius: 6px; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .p-hero .logo-wm { color: white; }
+
+    /* ── Post 2: Heritage Stat ── */
+    .p-stat {
+      background: var(--krispi-warm); border: 1px solid rgba(232,115,42,0.12);
+    }
+    .p-stat .top-bar { position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--krispi-orange); }
+    .p-stat .emoji { font-size: 3rem; margin-bottom: 1rem; }
+    .p-stat .big-num {
+      font-family: 'Montserrat', sans-serif; color: var(--krispi-orange);
+      font-size: 3.8rem; font-weight: 900; line-height: 1;
+    }
+    .p-stat .stat-label {
+      color: var(--charcoal-light); font-size: 0.85rem; text-align: center; margin: 0.5rem 0 2rem;
+    }
+    .p-stat .quote-box {
+      background: var(--krispi-dark); color: white; border-radius: 10px;
+      padding: 1.4rem 1.5rem;
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 0.88rem; line-height: 1.5; text-align: center;
+    }
+    .p-stat .logo-wm { color: var(--krispi-orange); }
+
+    /* ── Post 3: Tradie ── */
+    .p-tradie {
+      background: var(--krispi-dark);
+      background-image: linear-gradient(135deg, rgba(232,115,42,0.15) 0%, transparent 60%);
+    }
+    .p-tradie .tag {
+      background: rgba(232,115,42,0.2); color: var(--krispi-orange);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.55rem; font-weight: 800; padding: 5px 14px; border-radius: 20px;
+      letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .p-tradie h2 {
+      font-family: 'Montserrat', sans-serif; color: white; font-size: 1.35rem;
+      text-align: center; line-height: 1.3; border: none; margin: 0 0 1.5rem; padding: 0;
+      font-weight: 900; text-transform: uppercase;
+    }
+    .p-tradie h2 em { color: var(--krispi-orange); font-style: normal; }
+    .p-tradie .bullets { list-style: none; padding: 0; margin: 0; }
+    .p-tradie .bullets li {
+      color: rgba(255,255,255,0.8); font-size: 0.8rem; padding: 0.4rem 0;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .p-tradie .bullets li::before { content: "🔥"; font-size: 0.75rem; }
+    .p-tradie .logo-wm { color: white; }
+
+    /* ── Post 4: Mum audience ── */
+    .p-mum {
+      background: var(--krispi-warm); border: 1px solid rgba(232,115,42,0.12);
+    }
+    .p-mum .tag {
+      background: var(--krispi-orange); color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.55rem; font-weight: 800; padding: 5px 14px; border-radius: 20px;
+      letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .p-mum h2 {
+      font-family: 'Montserrat', sans-serif; color: var(--krispi-dark); font-size: 1.35rem;
+      text-align: center; line-height: 1.3; border: none; margin: 0 0 0.8rem; padding: 0;
+      font-weight: 900; text-transform: uppercase;
+    }
+    .p-mum h2 em { color: var(--krispi-orange); font-style: normal; }
+    .p-mum .mum-sub {
+      color: var(--charcoal-light); font-size: 0.82rem; text-align: center;
+      line-height: 1.6; margin-bottom: 1.5rem; max-width: 280px;
+    }
+    .p-mum .steps-list { list-style: none; padding: 0; margin: 0; text-align: left; }
+    .p-mum .steps-list li {
+      color: var(--charcoal); font-size: 0.78rem; padding: 0.35rem 0;
+      display: flex; align-items: center; gap: 10px; font-weight: 600;
+    }
+    .p-mum .steps-list li .num {
+      background: var(--krispi-orange); color: white; width: 22px; height: 22px;
+      border-radius: 50%; font-size: 0.6rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .p-mum .logo-wm { color: var(--krispi-orange); }
+
+    /* ── Post 5: Carousel cover ── */
+    .p-carousel {
+      background: var(--krispi-dark);
+      background-image:
+        radial-gradient(circle at 50% 100%, rgba(232,115,42,0.2) 0%, transparent 50%);
+    }
+    .p-carousel .swipe-hint {
+      position: absolute; top: 16px; right: 16px;
+      font-family: 'Montserrat', sans-serif; font-size: 0.5rem; font-weight: 700;
+      color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .p-carousel .big-emoji { font-size: 4rem; margin-bottom: 1.5rem; }
+    .p-carousel h2 {
+      font-family: 'Montserrat', sans-serif; color: white; font-size: 1.5rem;
+      text-align: center; line-height: 1.25; border: none; margin: 0 0 0.8rem; padding: 0;
+      font-weight: 900; text-transform: uppercase;
+    }
+    .p-carousel h2 em { color: var(--krispi-orange); font-style: normal; }
+    .p-carousel .carousel-sub {
+      color: rgba(255,255,255,0.5); font-size: 0.75rem; text-align: center;
+    }
+    .p-carousel .slide-dots {
+      position: absolute; bottom: 40px; display: flex; gap: 6px;
+    }
+    .p-carousel .slide-dots span {
+      width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2);
+    }
+    .p-carousel .slide-dots span:first-child { background: var(--krispi-orange); width: 20px; border-radius: 4px; }
+    .p-carousel .logo-wm { color: white; }
+
+    /* ── Story ── */
+    .ig-story {
+      width: 100%; max-width: 260px; aspect-ratio: 9/16; margin: 0 auto;
+      border-radius: 16px; overflow: hidden; position: relative;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 2rem 1.5rem;
+      background: var(--krispi-dark);
+      background-image: radial-gradient(circle at 50% 0%, rgba(232,115,42,0.25) 0%, transparent 50%);
+    }
+    .ig-story .s-tag {
+      background: var(--krispi-orange); color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.5rem; font-weight: 800; padding: 4px 14px; border-radius: 20px;
+      letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.2rem;
+    }
+    .ig-story .s-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .ig-story h3 {
+      font-family: 'Montserrat', sans-serif; color: white; font-size: 1.1rem;
+      text-align: center; line-height: 1.35; margin: 0 0 0.8rem;
+      font-weight: 800; text-transform: uppercase;
+    }
+    .ig-story h3 em { color: var(--krispi-orange); font-style: normal; }
+    .ig-story .s-list { list-style: none; padding: 0; margin: 0; }
+    .ig-story .s-list li {
+      color: rgba(255,255,255,0.7); font-size: 0.68rem; padding: 0.25rem 0;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .ig-story .s-list li::before { content: "→"; color: var(--krispi-orange); font-weight: 700; }
+    .ig-story .swipe {
+      position: absolute; bottom: 20px; color: rgba(255,255,255,0.4);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.55rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      display: flex; flex-direction: column; align-items: center; gap: 3px;
+    }
+    .ig-story .swipe .arr { font-size: 1rem; animation: bounce 1.5s infinite; }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+
+    /* ── Reel script ── */
+    .reel-box {
+      background: var(--krispi-dark); color: white; border-radius: 12px;
+      overflow: hidden; margin: 1.5rem 0;
+    }
+    .reel-header {
+      background: var(--krispi-orange); padding: 0.8rem 1.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800; font-size: 0.7rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: white;
+    }
+    .reel-body { padding: 1.5rem 1.8rem; }
+    .beat { margin-bottom: 1.2rem; padding-bottom: 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .beat:last-child { border: none; margin-bottom: 0; padding-bottom: 0; }
+    .beat-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--krispi-orange); margin-bottom: 0.2rem;
+    }
+    .beat-time { font-size: 0.6rem; color: rgba(255,255,255,0.35); margin-bottom: 0.3rem; }
+    .beat-script { font-size: 0.9rem; line-height: 1.6; }
+    .beat-visual { font-size: 0.78rem; color: var(--sage); margin-top: 0.3rem; font-style: italic; }
+
+    /* ── Caption box ── */
+    .caption-box {
+      background: var(--krispi-dark); color: white; border-radius: 10px;
+      padding: 1.5rem 1.8rem; margin: 1rem 0 1.5rem; font-size: 0.93rem;
+      line-height: 1.8; position: relative;
+    }
+    .caption-box::before {
+      content: attr(data-label); position: absolute; top: -10px; left: 16px;
+      background: var(--krispi-orange); color: white; font-family: 'Montserrat', sans-serif;
+      font-size: 0.55rem; font-weight: 800; padding: 3px 10px; border-radius: 4px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .caption-box .tags { color: var(--sage); font-size: 0.8rem; margin-top: 0.8rem; display: block; }
+
+    /* ── Photo note ── */
+    .photo-note {
+      background: var(--krispi-warm); border-left: 4px solid var(--krispi-orange);
+      border-radius: 8px; padding: 1.2rem 1.5rem; margin: 1.5rem 0; font-size: 0.9rem;
+    }
+    .photo-note strong { color: var(--krispi-dark); }
+
+    /* ── Next steps ── */
+    .steps-tl { position: relative; padding-left: 2.2rem; margin: 1.5rem 0; }
+    .steps-tl::before {
+      content: ""; position: absolute; left: 9px; top: 8px; bottom: 8px;
+      width: 2px; background: rgba(232,115,42,0.2);
+    }
+    .step {
+      position: relative; margin-bottom: 1.8rem; padding-left: 1.5rem;
+    }
+    .step::before {
+      content: ""; position: absolute; left: -1.7rem; top: 6px;
+      width: 16px; height: 16px; border-radius: 50%; background: var(--krispi-orange);
+      border: 3px solid var(--krispi-warm);
+    }
+    .step .when {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem; font-weight: 800; color: var(--krispi-orange);
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    .step .what { font-weight: 700; color: var(--krispi-dark); font-size: 1rem; }
+    .step .desc { font-size: 0.88rem; color: var(--charcoal-light); }
+
+    /* ── CTA box ── */
+    .cta-box {
+      background: var(--krispi-dark); color: white; border-radius: 14px;
+      padding: 2.5rem; text-align: center; margin: 2rem 0;
+    }
+    .cta-box h3 {
+      font-family: 'Montserrat', sans-serif; color: white; font-size: 1.1rem;
+      font-weight: 800; text-transform: uppercase; margin: 0 0 0.5rem;
+    }
+    .cta-box p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 1rem; }
+    .cta-box a {
+      display: inline-block; background: var(--krispi-orange); color: white;
+      font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.8rem;
+      padding: 12px 28px; border-radius: 8px; text-decoration: none;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .cta-box .or {
+      color: rgba(255,255,255,0.4); font-size: 0.82rem; margin-top: 1rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center; margin-top: 3rem; padding-top: 2rem;
+      border-top: 2px solid rgba(232,115,42,0.15);
+    }
+    .footer .logo-text {
+      font-family: 'Montserrat', sans-serif; color: var(--forest); font-size: 0.8rem;
+      font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.3rem;
+    }
+    .footer p { font-size: 0.8rem; color: var(--charcoal-light); }
+    .footer a { color: var(--forest); }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ═══ COVER ═══ -->
+  <div class="cover">
+    <div class="from">Prepared by Edge Studio</div>
+    <h1>Sample Content for <em>Krispi</em></h1>
+    <div class="sub">Feed posts, stories, Reel script + caption copy</div>
+  </div>
+
+  <div class="photo-note">
+    <strong>📸 A note on photos:</strong> These samples use your brand colours, fonts, and messaging to show the creative direction. Once we have access to your product photo library, every post will feature your actual food photography. Golden pan rolls front and centre.
+  </div>
+
+  <!-- ═══ FEED POSTS ═══ -->
+  <h2>Feed Post Samples</h2>
+  <p class="note">3 posts targeting each of your key audiences: new customers, tradies, and mums.</p>
+
+  <div class="visual-grid">
+    <div>
+      <div class="ig-post p-hero">
+        <div class="badge">NOW AT COLES</div>
+        <h2>Sri Lanka's Favourite Snack,<br><em>Made in Melbourne</em></h2>
+        <div class="divider"></div>
+        <p class="sub-text">Golden breadcrumbs. Spiced beef &amp; potato.<br>No fillers. No nasties. Just Krispi.</p>
+        <div class="cta-btn">ORDER NOW → LINK IN BIO</div>
+        <div class="logo-wm" style="color:white;">KRISPI</div>
+      </div>
+      <p class="visual-label">Feed · Brand Hero</p>
+    </div>
+    <div>
+      <div class="ig-post p-tradie">
+        <div class="tag">TRADIE FUEL</div>
+        <h2>Your Smoko Just Got an <em>Upgrade</em></h2>
+        <ul class="bullets">
+          <li>Ready in 12 mins from frozen</li>
+          <li>Fits in an esky or lunchbox</li>
+          <li>Proper spiced beef &amp; potato</li>
+          <li>No sad servo pie required</li>
+          <li>Air fryer or oven, done</li>
+        </ul>
+        <div class="logo-wm" style="color:white;">KRISPI</div>
+      </div>
+      <p class="visual-label">Feed · Tradie Audience</p>
+    </div>
+  </div>
+
+  <div class="visual-grid">
+    <div>
+      <div class="ig-post p-mum">
+        <div class="tag">SCHOOL LUNCH HACK</div>
+        <h2>Monday Morning,<br><em>Sorted</em></h2>
+        <p class="mum-sub">From freezer to lunchbox in 3 steps. The kids won't stop asking for them.</p>
+        <ul class="steps-list">
+          <li><span class="num">1</span>Grab from the freezer</li>
+          <li><span class="num">2</span>Air fry 12 mins</li>
+          <li><span class="num">3</span>Pack &amp; go</li>
+        </ul>
+        <div class="logo-wm" style="color:#E8732A;">KRISPI</div>
+      </div>
+      <p class="visual-label">Feed · Mum Audience</p>
+    </div>
+    <div>
+      <div class="ig-post p-stat">
+        <div class="top-bar"></div>
+        <div class="emoji">🌏</div>
+        <div class="big-num">1960s</div>
+        <div class="stat-label">The decade our family brought<br>Sri Lankan flavours to Australia.</div>
+        <div class="quote-box">
+          "We don't just make food.<br>We <strong>create moments.</strong>"
+        </div>
+        <div class="logo-wm" style="color:#E8732A;">KRISPI</div>
+      </div>
+      <p class="visual-label">Feed · Heritage Story</p>
+    </div>
+  </div>
+
+  <!-- ═══ CAROUSEL ═══ -->
+  <h2>Carousel Sample</h2>
+  <p class="note">Cover slide for a "5 Ways to Eat Krispi Pan Rolls" swipeable carousel.</p>
+
+  <div style="display:flex; justify-content:center; margin: 2rem 0;">
+    <div>
+      <div class="ig-post p-carousel">
+        <div class="swipe-hint">SWIPE →</div>
+        <div class="big-emoji">🤤</div>
+        <h2>5 Ways to Eat<br><em>Krispi Pan Rolls</em></h2>
+        <p class="carousel-sub">Save this for later ↓</p>
+        <div class="slide-dots">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="logo-wm" style="color:white;">KRISPI</div>
+      </div>
+      <p class="visual-label">Carousel · Cover Slide</p>
+    </div>
+  </div>
+
+  <!-- ═══ STORY ═══ -->
+  <h2>Story Sample</h2>
+  <p class="note">Recipe hack story with tap-through CTA.</p>
+
+  <div style="display:flex; justify-content:center; margin: 2rem 0;">
+    <div>
+      <div class="ig-story">
+        <div class="s-tag">RECIPE HACK</div>
+        <div class="s-icon">🌶️</div>
+        <h3>Pan Rolls +<br><em>Spicy Chutney</em></h3>
+        <ul class="s-list">
+          <li>Air fry pan rolls 12 mins</li>
+          <li>Blend chilli, vinegar, onion, garlic</li>
+          <li>Dip and enjoy</li>
+          <li>Try not to eat the whole box</li>
+        </ul>
+        <div class="swipe"><span class="arr">↑</span>TAP TO ORDER</div>
+      </div>
+      <p class="visual-label">Story · Recipe Hack</p>
+    </div>
+  </div>
+
+  <!-- ═══ SAMPLE CAPTION ═══ -->
+  <h2>Sample Caption</h2>
+  <h3>Brand Hero Feed Post</h3>
+
+  <div class="caption-box" data-label="Instagram Caption">
+    Our family migrated from Sri Lanka in the '60s and brought one thing that never changed: the recipes.<br><br>
+    Krispi pan rolls are made the way they've always been made. Golden breadcrumbs on the outside, a soft crepe layer, and spiced beef and potato filling that'll remind you of home (or introduce you to a new one).<br><br>
+    We source every ingredient locally. No fillers. No shortcuts.<br><br>
+    Available for home delivery across Melbourne, at your local IGA, and now in Coles freezer section. 📍<br><br>
+    🧡 Tag someone who needs to try these<br><br>
+    <span class="tags">#krispi #panrolls #srilankanfood #melbournefood #melbourneeats #australianmade #tradielunch #schoollunches #airfryerrecipes #frozenfood #srilankan #ceylonfood #melbournefoodie #supportlocal</span>
+  </div>
+
+  <!-- ═══ REEL SCRIPT ═══ -->
+  <h2>Sample Reel Script</h2>
+  <h3>"The smoko that hits different" (targeting tradies)</h3>
+
+  <div class="reel-box">
+    <div class="reel-header">📱 Reel Script · 30 Seconds</div>
+    <div class="reel-body">
+      <div class="beat">
+        <div class="beat-label">Hook</div>
+        <div class="beat-time">0–3 seconds</div>
+        <div class="beat-script">"Ditch the servo pie."</div>
+        <div class="beat-visual">📹 Close-up of a sad gas station pie. Quick cut to golden Krispi pan rolls coming out of an air fryer.</div>
+      </div>
+      <div class="beat">
+        <div class="beat-label">The Switch</div>
+        <div class="beat-time">3–10 seconds</div>
+        <div class="beat-script">"These are Krispi pan rolls. Sri Lankan recipe. Golden crumb. Spiced beef and potato. Ready in 12 minutes from your freezer."</div>
+        <div class="beat-visual">📹 Hands pulling pan rolls out of air fryer. Close-up of the crunch as one is bitten into. Steam rising.</div>
+      </div>
+      <div class="beat">
+        <div class="beat-label">The Proof</div>
+        <div class="beat-time">10–22 seconds</div>
+        <div class="beat-script">"They fit in your esky. They fit in a lunchbox. And they actually taste like someone's mum made them. Because someone's mum did."</div>
+        <div class="beat-visual">📹 Pan rolls being packed into an esky / lunchbox on a building site. Cut to a tradie taking a bite and nodding. Real reaction.</div>
+      </div>
+      <div class="beat">
+        <div class="beat-label">CTA</div>
+        <div class="beat-time">22–30 seconds</div>
+        <div class="beat-script">"Available at Coles, IGA, or delivered to your door. Link in bio."</div>
+        <div class="beat-visual">📹 Product shot with packaging. On-screen text: "KRISPI PAN ROLLS → LINK IN BIO". End on logo.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ NEXT STEPS ═══ -->
+  <h2>Next Steps</h2>
+
+  <div class="steps-tl">
+    <div class="step">
+      <div class="when">Step 1 · This Week</div>
+      <div class="what">Quick 15-minute discovery call</div>
+      <div class="desc">We confirm the scope, align on goals, and lock in a start date. I'll answer any questions about the proposal.</div>
+    </div>
+    <div class="step">
+      <div class="when">Step 2 · Before We Start</div>
+      <div class="what">Onboarding + brand setup</div>
+      <div class="desc">You share your product photo folder, brand assets, and platform logins. I set up your content calendar and scheduling tool. Takes about 30 minutes of your time.</div>
+    </div>
+    <div class="step">
+      <div class="when">Step 3 · Week 1</div>
+      <div class="what">First content calendar delivered</div>
+      <div class="desc">You receive your full Month 1 content plan with all captions, graphics, and Reel scripts for approval.</div>
+    </div>
+    <div class="step">
+      <div class="when">Step 4 · Week 1&ndash;2</div>
+      <div class="what">First video shoot day</div>
+      <div class="desc">Our videographer films your first batch of Reels on location. Half-day shoot = enough footage for the whole month.</div>
+    </div>
+    <div class="step">
+      <div class="when">Step 5 · Ongoing</div>
+      <div class="what">Content goes live</div>
+      <div class="desc">Posts scheduled and published. Monthly check-in to review performance and plan the next month. You focus on making pan rolls. We handle the content.</div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>Ready to get started?</h3>
+    <p>Book a quick call and we'll lock everything in.</p>
+    <a href="https://calendly.com/hello-theedgestudio/30min">Book Your Call</a>
+    <p class="or">Or just reply to this email. I'll find a time that works.</p>
+  </div>
+
+  <div class="footer">
+    <div class="logo-text">Edge Studio</div>
+    <p>Content marketing that works as hard as you do.</p>
+    <p><a href="https://theedgestudio.app">theedgestudio.app</a> · hello@theedgestudio.app</p>
+  </div>
+
+</div>
+
+</body>
+</html>

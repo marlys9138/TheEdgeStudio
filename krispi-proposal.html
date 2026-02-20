@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Proposal for Krispi | Edge Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --forest: #1B3A2D;
+      --sage: #6B9E8A;
+      --sage-pale: #D4E8DE;
+      --cream: #FAFAF7;
+      --cream-warm: #F5F0E8;
+      --charcoal: #2D2D2D;
+      --charcoal-light: #5A5A5A;
+      --terracotta: #C47D5A;
+      --white: #FFFFFF;
+      --krispi-orange: #E8732A;
+      --krispi-dark: #1A1A1A;
+      --krispi-warm: #FFF4EC;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+    }
+
+    html { font-size: 16px; }
+    body { font-family: var(--font-body); color: var(--charcoal); background: var(--cream); line-height: 1.7; }
+
+    .page { max-width: 800px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+
+    /* ── Cover ── */
+    .cover {
+      background: var(--forest); color: var(--cream); border-radius: 16px;
+      padding: 3.5rem 3rem; text-align: center; margin-bottom: 3rem;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(107,158,138,0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(232,115,42,0.15) 0%, transparent 40%);
+    }
+    .cover .from { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.5rem; }
+    .cover h1 { font-family: var(--font-display); font-size: 2.2rem; line-height: 1.3; margin-bottom: 0.5rem; }
+    .cover h1 em { color: var(--krispi-orange); font-style: italic; }
+    .cover .for { font-size: 1rem; color: var(--sage); margin-bottom: 1.5rem; }
+    .cover .date { font-size: 0.8rem; color: rgba(250,250,247,0.5); }
+
+    /* ── Section styles ── */
+    h2 {
+      font-family: var(--font-display); color: var(--forest); font-size: 1.5rem;
+      margin: 3rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--sage-pale);
+    }
+    h3 { color: var(--forest); font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    p { margin-bottom: 1rem; }
+
+    .subtitle { color: var(--charcoal-light); font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+    /* ── Boxes ── */
+    .box {
+      background: var(--white); border-radius: 12px; padding: 1.8rem;
+      border-left: 4px solid var(--sage); margin: 1.5rem 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .box h3 { margin-top: 0; }
+
+    .highlight-box {
+      background: var(--krispi-warm); border-radius: 12px; padding: 1.8rem;
+      border-left: 4px solid var(--krispi-orange); margin: 1.5rem 0;
+    }
+
+    .pricing-box {
+      background: var(--forest); color: var(--cream); border-radius: 14px;
+      padding: 2.5rem; margin: 2rem 0; text-align: center;
+    }
+    .pricing-box .pkg-name {
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--krispi-orange); margin-bottom: 0.5rem; font-weight: 700;
+    }
+    .pricing-box .price {
+      font-family: var(--font-display); font-size: 3rem; margin-bottom: 0.3rem;
+    }
+    .pricing-box .period { color: var(--sage); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .pricing-box .includes {
+      text-align: left; max-width: 500px; margin: 0 auto;
+      list-style: none; padding: 0;
+    }
+    .pricing-box .includes li {
+      padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem; display: flex; align-items: flex-start; gap: 10px;
+    }
+    .pricing-box .includes li::before {
+      content: "✓"; color: var(--krispi-orange); font-weight: 700; flex-shrink: 0;
+    }
+
+    /* ── Calendar ── */
+    .calendar {
+      display: grid; grid-template-columns: 90px 1fr; gap: 0; margin: 1.5rem 0;
+      border-radius: 12px; overflow: hidden;
+    }
+    .cal-day {
+      background: var(--forest); color: var(--cream); padding: 1rem 0.8rem;
+      font-weight: 700; font-size: 0.8rem; text-align: center;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2px; border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .cal-day .day-name { font-size: 0.65rem; color: var(--sage); text-transform: uppercase; letter-spacing: 0.1em; }
+    .cal-content {
+      background: var(--white); padding: 1rem 1.3rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .cal-content .post-type {
+      display: inline-block; font-size: 0.6rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 4px; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 0.4rem;
+    }
+    .type-reel { background: #FDEBD0; color: #E67E22; }
+    .type-story { background: #D5F5E3; color: #27AE60; }
+    .type-feed { background: #D6EAF8; color: #2980B9; }
+    .type-carousel { background: #F5EEF8; color: #8E44AD; }
+    .cal-content .post-title { font-weight: 600; font-size: 0.9rem; color: var(--charcoal); }
+    .cal-content .post-desc { font-size: 0.82rem; color: var(--charcoal-light); margin-top: 0.2rem; }
+
+    /* ── Copy box ── */
+    .copy-box {
+      background: var(--krispi-dark); color: var(--cream); border-radius: 10px;
+      padding: 1.5rem 1.8rem; margin: 1rem 0 1.5rem; font-size: 0.93rem;
+      line-height: 1.8; position: relative;
+    }
+    .copy-box::before {
+      content: attr(data-label); position: absolute; top: -10px; left: 16px;
+      background: var(--krispi-orange); color: white; font-size: 0.6rem; font-weight: 700;
+      padding: 2px 10px; border-radius: 4px; letter-spacing: 0.08em;
+    }
+    .copy-box .hashtags { color: var(--sage); font-size: 0.82rem; margin-top: 0.8rem; display: block; }
+
+    /* ── IG Visuals ── */
+    .visual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; }
+    @media (max-width: 650px) { .visual-grid { grid-template-columns: 1fr; } }
+
+    .visual-label {
+      text-align: center; font-size: 0.75rem; color: var(--charcoal-light);
+      margin-top: 0.6rem; font-weight: 600;
+    }
+
+    .ig-post {
+      width: 100%; max-width: 360px; aspect-ratio: 1013/1350; margin: 0 auto;
+      border-radius: 12px; overflow: hidden; position: relative;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 2.5rem 2rem;
+    }
+    .ig-post .logo-watermark {
+      position: absolute; bottom: 16px; text-align: center;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; opacity: 0.4;
+    }
+
+    /* Post 1: Hero intro */
+    .post-hero {
+      background: var(--krispi-dark);
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(232,115,42,0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(232,115,42,0.1) 0%, transparent 40%);
+    }
+    .post-hero .badge {
+      background: var(--krispi-orange); color: white; font-size: 0.55rem; font-weight: 700;
+      padding: 4px 14px; border-radius: 20px; letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .post-hero h2 {
+      font-family: var(--font-display); color: white; font-size: 1.5rem;
+      text-align: center; line-height: 1.35; border: none; margin: 0 0 1rem; padding: 0;
+    }
+    .post-hero h2 em { color: var(--krispi-orange); font-style: italic; }
+    .post-hero .divider { width: 40px; height: 2px; background: var(--krispi-orange); margin: 0.5rem auto 1.2rem; border-radius: 2px; }
+    .post-hero .sub {
+      color: rgba(255,255,255,0.7); font-size: 0.78rem; text-align: center; line-height: 1.6;
+    }
+    .post-hero .cta-btn {
+      margin-top: 1.5rem; border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.08); color: white;
+      font-size: 0.68rem; font-weight: 600; padding: 8px 20px;
+      border-radius: 6px; letter-spacing: 0.06em;
+    }
+    .post-hero .logo-watermark { color: white; }
+
+    /* Post 2: Stat */
+    .post-stat {
+      background: var(--krispi-warm); border: 1px solid rgba(232,115,42,0.15);
+    }
+    .post-stat .top-bar {
+      position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--krispi-orange);
+    }
+    .post-stat .emoji { font-size: 3rem; margin-bottom: 1rem; }
+    .post-stat .stat-number {
+      font-family: var(--font-display); color: var(--krispi-orange); font-size: 3.5rem; line-height: 1;
+    }
+    .post-stat .stat-label {
+      color: var(--charcoal-light); font-size: 0.85rem; text-align: center; margin: 0.5rem 0 1.5rem;
+    }
+    .post-stat .quote-block {
+      background: var(--krispi-dark); color: white; border-radius: 10px;
+      padding: 1.3rem 1.5rem; font-family: var(--font-display);
+      font-size: 0.9rem; line-height: 1.5; text-align: center; font-style: italic;
+    }
+    .post-stat .logo-watermark { color: var(--krispi-orange); }
+
+    /* Post 3: Tradie */
+    .post-tradie {
+      background: var(--krispi-dark);
+      background-image:
+        linear-gradient(135deg, rgba(232,115,42,0.15) 0%, transparent 60%);
+    }
+    .post-tradie .tag {
+      background: rgba(232,115,42,0.2); color: var(--krispi-orange);
+      font-size: 0.55rem; font-weight: 700; padding: 4px 14px; border-radius: 20px;
+      letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .post-tradie h2 {
+      font-family: var(--font-display); color: white; font-size: 1.4rem;
+      text-align: center; line-height: 1.4; border: none; margin: 0 0 1.2rem; padding: 0;
+    }
+    .post-tradie h2 em { color: var(--krispi-orange); }
+    .post-tradie .bullet-list {
+      list-style: none; padding: 0; margin: 0;
+    }
+    .post-tradie .bullet-list li {
+      color: rgba(255,255,255,0.8); font-size: 0.78rem; padding: 0.35rem 0;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .post-tradie .bullet-list li::before { content: "🔥"; font-size: 0.7rem; }
+    .post-tradie .logo-watermark { color: white; }
+
+    /* Post 4: Recipe Story */
+    .post-story {
+      width: 100%; max-width: 260px; aspect-ratio: 9/16; margin: 0 auto;
+      background: var(--krispi-dark); border-radius: 16px; overflow: hidden;
+      position: relative; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; padding: 2rem 1.5rem;
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(232,115,42,0.25) 0%, transparent 50%);
+    }
+    .post-story .story-tag {
+      background: var(--krispi-orange); color: white; font-size: 0.5rem; font-weight: 800;
+      padding: 3px 14px; border-radius: 20px; letter-spacing: 0.15em;
+      text-transform: uppercase; margin-bottom: 1.2rem;
+    }
+    .post-story .story-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .post-story h3 {
+      font-family: var(--font-display); color: white; font-size: 1.15rem;
+      text-align: center; line-height: 1.35; margin: 0 0 0.8rem;
+    }
+    .post-story h3 em { color: var(--krispi-orange); }
+    .post-story .steps {
+      list-style: none; padding: 0; margin: 0;
+    }
+    .post-story .steps li {
+      color: rgba(255,255,255,0.7); font-size: 0.68rem; padding: 0.25rem 0;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .post-story .steps li::before { content: "→"; color: var(--krispi-orange); font-weight: 700; }
+    .post-story .swipe {
+      position: absolute; bottom: 20px; color: rgba(255,255,255,0.4);
+      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      display: flex; flex-direction: column; align-items: center; gap: 3px;
+    }
+    .post-story .swipe .arr { font-size: 1rem; animation: bounce 1.5s infinite; }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+
+    /* ── Reel script ── */
+    .reel-script {
+      background: var(--krispi-dark); color: var(--cream); border-radius: 12px;
+      overflow: hidden; margin: 1.5rem 0;
+    }
+    .reel-header {
+      background: var(--krispi-orange); padding: 0.8rem 1.5rem;
+      font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: white;
+    }
+    .reel-body { padding: 1.5rem 1.8rem; }
+    .reel-body .beat {
+      margin-bottom: 1.2rem; padding-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .reel-body .beat:last-child { border: none; margin-bottom: 0; padding-bottom: 0; }
+    .reel-body .beat-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--krispi-orange); margin-bottom: 0.3rem;
+    }
+    .reel-body .beat-time {
+      font-size: 0.6rem; color: rgba(255,255,255,0.4); margin-bottom: 0.3rem;
+    }
+    .reel-body .beat-script { font-size: 0.9rem; line-height: 1.6; }
+    .reel-body .beat-visual {
+      font-size: 0.78rem; color: var(--sage); margin-top: 0.3rem; font-style: italic;
+    }
+
+    /* ── Next steps ── */
+    .steps-timeline {
+      position: relative; padding-left: 2rem; margin: 1.5rem 0;
+    }
+    .steps-timeline::before {
+      content: ""; position: absolute; left: 8px; top: 8px; bottom: 8px;
+      width: 2px; background: var(--sage-pale);
+    }
+    .step-item {
+      position: relative; margin-bottom: 1.5rem; padding-left: 1.5rem;
+    }
+    .step-item::before {
+      content: ""; position: absolute; left: -1.55rem; top: 6px;
+      width: 14px; height: 14px; border-radius: 50%; background: var(--forest);
+      border: 3px solid var(--sage-pale);
+    }
+    .step-item .step-when {
+      font-size: 0.7rem; font-weight: 700; color: var(--krispi-orange);
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .step-item .step-what { font-weight: 600; color: var(--forest); }
+    .step-item .step-desc { font-size: 0.88rem; color: var(--charcoal-light); }
+
+    /* ── Footer ── */
+    .proposal-footer {
+      text-align: center; margin-top: 3rem; padding-top: 2rem;
+      border-top: 2px solid var(--sage-pale);
+    }
+    .proposal-footer .logo-text {
+      font-family: var(--font-display); color: var(--forest); font-size: 1rem;
+      letter-spacing: 0.08em; margin-bottom: 0.3rem;
+    }
+    .proposal-footer p { font-size: 0.82rem; color: var(--charcoal-light); }
+    .proposal-footer a { color: var(--forest); }
+
+    @media print {
+      body { background: white; }
+      .page { padding: 1rem; max-width: 100%; }
+      .cover { break-after: page; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ═══ COVER ═══ -->
+  <div class="cover">
+    <div class="from">EDGE STUDIO</div>
+    <h1>Content Proposal for <em>Krispi</em></h1>
+    <div class="for">Prepared for Nicola · Krispi Foods</div>
+    <div class="date">February 2026</div>
+  </div>
+
+  <!-- ═══ UNDERSTANDING ═══ -->
+  <h2>What We Understand</h2>
+  <p>Krispi makes authentic Sri Lankan pan rolls from a family recipe, using locally sourced Australian ingredients. Your audience spans tradies looking for a solid lunch, the Indian and Sri Lankan diaspora craving a taste of home, and busy mums who want something quick and delicious for the family.</p>
+  <p>You have great product photography, strong brand colours, and a product people genuinely love. What's missing is a consistent content engine — regular posts, engaging stories, Reels that show the human side of Krispi, and a schedule that keeps you visible. That's exactly what this proposal covers.</p>
+
+  <!-- ═══ SAMPLE WEEK ═══ -->
+  <h2>Sample Week: Content Plan</h2>
+  <p class="subtitle">Here's what one week of content would look like. Each month you'd receive a full 4-week calendar plus all the written content, graphics, and Reel scripts ready to go.</p>
+
+  <div class="calendar">
+    <div class="cal-day"><span class="day-name">Monday</span>MON</div>
+    <div class="cal-content">
+      <span class="post-type type-feed">Feed Post</span>
+      <div class="post-title">Brand intro: "We don't just make food, we create moments"</div>
+      <div class="post-desc">Hero product shot of pan rolls with dipping sauce. Story-driven caption about the family's journey from Sri Lanka to Dandenong South.</div>
+    </div>
+
+    <div class="cal-day"><span class="day-name">Tuesday</span>TUE</div>
+    <div class="cal-content">
+      <span class="post-type type-story">Story × 3</span>
+      <div class="post-title">Behind the scenes: "How we make our pan rolls"</div>
+      <div class="post-desc">3-slide story: raw ingredients → rolling → golden crumb coating. Poll sticker: "Beef or Chicken? 🥩🍗"</div>
+    </div>
+
+    <div class="cal-day"><span class="day-name">Wednesday</span>WED</div>
+    <div class="cal-content">
+      <span class="post-type type-reel">Reel</span>
+      <div class="post-title">"The smoko that hits different" — tradie lunch Reel</div>
+      <div class="post-desc">30-sec Reel targeting tradies. Quick cuts of air fryer → golden rolls → eating on the job site. Trending audio. Full script provided below.</div>
+    </div>
+
+    <div class="cal-day"><span class="day-name">Thursday</span>THU</div>
+    <div class="cal-content">
+      <span class="post-type type-carousel">Carousel × 5</span>
+      <div class="post-title">"5 ways to eat Krispi pan rolls"</div>
+      <div class="post-desc">Educational carousel: with chutney, with chips & salad, in a lunchbox, as party finger food, straight from the air fryer at midnight. Shareable, saveable.</div>
+    </div>
+
+    <div class="cal-day"><span class="day-name">Friday</span>FRI</div>
+    <div class="cal-content">
+      <span class="post-type type-story">Story × 3</span>
+      <div class="post-title">Customer spotlight / UGC repost</div>
+      <div class="post-desc">Repost a customer photo or video with a thank-you message. Question sticker: "What's YOUR favourite way to eat pan rolls?"</div>
+    </div>
+
+    <div class="cal-day"><span class="day-name">Saturday</span>SAT</div>
+    <div class="cal-content">
+      <span class="post-type type-reel">Reel</span>
+      <div class="post-title">"Mum's secret weapon for school lunches"</div>
+      <div class="post-desc">30-sec Reel targeting mums. Freezer → lunchbox → happy kids. Relatable caption about the morning rush.</div>
+    </div>
+
+    <div class="cal-day"><span class="day-name">Sunday</span>SUN</div>
+    <div class="cal-content">
+      <span class="post-type type-feed">Feed Post</span>
+      <div class="post-title">Heritage story: "Our family's recipe started in Ceylon"</div>
+      <div class="post-desc">Warm, storytelling post with family photo or product flat lay. Ties into the Sri Lankan cultural roots and what pan rolls mean to the community.</div>
+    </div>
+  </div>
+
+  <!-- ═══ SAMPLE VISUALS ═══ -->
+  <h2>Sample Visuals</h2>
+  <p class="subtitle">Mockups of how your branded content would look on the feed. These samples use your brand colours and messaging — once we have access to your product photo library, we'll incorporate your actual food photography into every post for a fully on-brand feed.</p>
+
+  <div class="visual-grid">
+    <div>
+      <div class="ig-post post-hero">
+        <div class="badge">NOW AT COLES</div>
+        <h2>Sri Lanka's Favourite Snack,<br><em>Made in Melbourne</em></h2>
+        <div class="divider"></div>
+        <p class="sub">Golden breadcrumbs. Spiced beef &amp; potato.<br>No fillers. No nasties. Just Krispi.</p>
+        <div class="cta-btn">ORDER NOW → LINK IN BIO</div>
+        <div class="logo-watermark">KRISPI</div>
+      </div>
+      <p class="visual-label">Feed Post — Brand Hero (1013×1350)</p>
+    </div>
+    <div>
+      <div class="ig-post post-stat">
+        <div class="top-bar"></div>
+        <div class="emoji">🌏</div>
+        <div class="stat-number">1960s</div>
+        <div class="stat-label">The decade our family brought<br>Sri Lankan flavours to Australia.</div>
+        <div class="quote-block">
+          "We don't just make food.<br>We <strong>create moments.</strong>"
+        </div>
+        <div class="logo-watermark">KRISPI</div>
+      </div>
+      <p class="visual-label">Carousel — Heritage Stat Slide (1013×1350)</p>
+    </div>
+  </div>
+
+  <div class="visual-grid">
+    <div>
+      <div class="ig-post post-tradie">
+        <div class="tag">TRADIE FUEL</div>
+        <h2>Your smoko just got an <em>upgrade</em></h2>
+        <ul class="bullet-list">
+          <li>Ready in 12 mins from frozen</li>
+          <li>Fits in an esky or lunchbox</li>
+          <li>Proper spiced beef &amp; potato</li>
+          <li>No sad servo pie required</li>
+          <li>Air fryer or oven — done</li>
+        </ul>
+        <div class="logo-watermark">KRISPI</div>
+      </div>
+      <p class="visual-label">Feed Post — Tradie Audience (1013×1350)</p>
+    </div>
+    <div>
+      <div class="post-story">
+        <div class="story-tag">RECIPE HACK</div>
+        <div class="story-icon">🍟</div>
+        <h3>Pan rolls +<br><em>spicy chutney</em></h3>
+        <ul class="steps">
+          <li>Air fry pan rolls 12 mins</li>
+          <li>Blend chilli, vinegar, onion, garlic</li>
+          <li>Dip and enjoy</li>
+          <li>Try not to eat the whole box</li>
+        </ul>
+        <div class="swipe"><span class="arr">↑</span>TAP TO ORDER</div>
+      </div>
+      <p class="visual-label">Story — Recipe Hack (1080×1920)</p>
+    </div>
+  </div>
+
+  <!-- ═══ SAMPLE CAPTION ═══ -->
+  <h2>Sample Caption</h2>
+  <h3>Monday Feed Post — Brand Intro</h3>
+  <div class="copy-box" data-label="INSTAGRAM CAPTION">
+    Our family migrated from Sri Lanka in the '60s and brought one thing that never changed: the recipes.<br><br>
+    Krispi pan rolls are made the way they've always been made — golden breadcrumbs on the outside, a soft crepe layer, and spiced beef and potato filling that'll remind you of home (or introduce you to a new one).<br><br>
+    We source every ingredient locally. No fillers. No shortcuts.<br><br>
+    Available for home delivery across Melbourne, at your local IGA, and now in Coles freezer section. 📍<br><br>
+    🧡 Tag someone who needs to try these<br><br>
+    <span class="hashtags">#krispi #panrolls #srilankanfood #melbournefood #melbourneeats #australianmade #tradielunch #schoollunches #airfryerrecipes #frozenfood #srilankan #ceylonfood #melbournefoodie #supportlocal</span>
+  </div>
+
+  <!-- ═══ REEL SCRIPT ═══ -->
+  <h2>Sample Reel Script</h2>
+  <h3>"The smoko that hits different" — targeting tradies</h3>
+
+  <div class="reel-script">
+    <div class="reel-header">📱 Reel Script — 30 Seconds</div>
+    <div class="reel-body">
+      <div class="beat">
+        <div class="beat-label">Hook</div>
+        <div class="beat-time">0–3 seconds</div>
+        <div class="beat-script">"Ditch the servo pie."</div>
+        <div class="beat-visual">📹 Close-up of a sad gas station pie. Quick cut to golden Krispi pan rolls coming out of an air fryer.</div>
+      </div>
+      <div class="beat">
+        <div class="beat-label">The Switch</div>
+        <div class="beat-time">3–10 seconds</div>
+        <div class="beat-script">"These are Krispi pan rolls. Sri Lankan recipe. Golden crumb. Spiced beef and potato. Ready in 12 minutes from your freezer."</div>
+        <div class="beat-visual">📹 Hands pulling pan rolls out of air fryer. Close-up of the crunch as one is bitten into. Steam rising.</div>
+      </div>
+      <div class="beat">
+        <div class="beat-label">The Proof</div>
+        <div class="beat-time">10–22 seconds</div>
+        <div class="beat-script">"They fit in your esky. They fit in a lunchbox. And they actually taste like someone's mum made them — because someone's mum did."</div>
+        <div class="beat-visual">📹 Pan rolls being packed into an esky / lunchbox on a building site. Cut to a tradie taking a bite and nodding. Real reaction.</div>
+      </div>
+      <div class="beat">
+        <div class="beat-label">CTA</div>
+        <div class="beat-time">22–30 seconds</div>
+        <div class="beat-script">"Available at Coles, IGA, or delivered to your door. Link in bio."</div>
+        <div class="beat-visual">📹 Product shot with packaging. On-screen text: "KRISPI PAN ROLLS → LINK IN BIO". End on logo.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h3 style="margin-top: 0;">🎬 How this gets filmed</h3>
+    <p>Edge Studio provides the full script, shot list, and on-screen text direction. Our videographer shoots the content on location (your kitchen, a job site, or at home) during a half-day monthly content shoot. One shoot day = enough footage for the whole month's Reels.</p>
+  </div>
+
+  <!-- ═══ WHAT'S INCLUDED ═══ -->
+  <h2>Your Package</h2>
+
+  <div class="pricing-box">
+    <div class="pkg-name">Krispi Full-Service Content Package</div>
+    <div class="price">$2,200</div>
+    <div class="period">per month + GST · minimum 3-month commitment</div>
+    <ul class="includes">
+      <li>Full monthly content strategy + content calendar</li>
+      <li>12–16 Instagram/Facebook posts per month (feed + stories)</li>
+      <li>4 Reel scripts with full shot lists + on-screen text</li>
+      <li>Branded graphics (carousels, quote tiles, promo tiles)</li>
+      <li>All captions, hooks, and hashtag strategy</li>
+      <li>Monthly half-day video shoot with professional videographer</li>
+      <li>Video editing for 4 Reels (30–60 sec each)</li>
+      <li>Scheduling + publishing across Instagram &amp; Facebook</li>
+      <li>Monthly performance check-in (15-min call or voice note)</li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h3>Optional add-ons</h3>
+    <p><strong>Blog content (SEO):</strong> 2 blog posts/month targeting Google search traffic — $200/month</p>
+    <p><strong>Email marketing:</strong> Monthly newsletter or promo email — $100/month</p>
+    <p><strong>Extra Reels:</strong> Additional Reels beyond 4/month — $150 each (script + edit)</p>
+  </div>
+
+  <!-- ═══ NEXT STEPS ═══ -->
+  <h2>Next Steps</h2>
+
+  <div class="steps-timeline">
+    <div class="step-item">
+      <div class="step-when">Step 1 — This week</div>
+      <div class="step-what">15-minute discovery call</div>
+      <div class="step-desc">Quick chat to confirm the scope, answer your questions, and align on goals. We'll lock in a start date.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-when">Step 2 — Before we start</div>
+      <div class="step-what">Onboarding + brand setup</div>
+      <div class="step-desc">You share your product photo folder, brand assets, and platform logins. I set up your content calendar and scheduling tool. Takes about 30 minutes of your time.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-when">Step 3 — Week 1</div>
+      <div class="step-what">First content calendar delivered</div>
+      <div class="step-desc">You receive your full Month 1 content plan with all captions, graphics, and Reel scripts for approval. Revisions included.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-when">Step 4 — Week 1–2</div>
+      <div class="step-what">First video shoot day</div>
+      <div class="step-desc">Our videographer films your first batch of Reels using the scripts and shot lists I've prepared. Half-day shoot = enough footage for the full month.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-when">Step 5 — Ongoing</div>
+      <div class="step-what">Content goes live + monthly rhythm</div>
+      <div class="step-desc">Posts scheduled and published. Monthly check-in to review what's working and plan the next month. You focus on making incredible pan rolls — I handle the content.</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h3 style="margin-top: 0;">Ready to get started?</h3>
+    <p>Book a quick 15-minute call and we'll lock everything in:</p>
+    <p><strong><a href="https://calendly.com/hello-theedgestudio/30min" style="color: var(--krispi-orange);">Book your call → calendly.com/hello-theedgestudio/30min</a></strong></p>
+    <p style="margin-bottom: 0;">Or reply to this email and I'll find a time that works for you.</p>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="proposal-footer">
+    <div class="logo-text">EDGE STUDIO</div>
+    <p>Content marketing that works as hard as you do.</p>
+    <p><a href="https://theedgestudio.app">theedgestudio.app</a> · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" dat
