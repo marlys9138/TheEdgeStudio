@@ -51,9 +51,104 @@
             0%, 100% { box-shadow: 0 6px 24px rgba(74, 124, 143, 0.4); }
             50% { box-shadow: 0 6px 24px rgba(74, 124, 143, 0.8), 0 0 0 15px rgba(74, 124, 143, 0.1); }
         }
+        
+        /* Chat notification bubble for mobile */
+        .chat-notification {
+            position: fixed;
+            bottom: 110px;
+            right: 28px;
+            background: white;
+            padding: 16px 20px;
+            border-radius: 18px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            max-width: 280px;
+            z-index: 9998;
+            display: none;
+            animation: slideInBounce 0.5s ease-out;
+        }
+        
+        @keyframes slideInBounce {
+            0% { opacity: 0; transform: translateY(20px) scale(0.8); }
+            60% { transform: translateY(-5px) scale(1.02); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        .chat-notification.show {
+            display: block;
+        }
+        
+        .chat-notification-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .chat-notification-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .chat-notification-close {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 20px;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+        
+        .chat-notification-close:hover {
+            background: var(--bg-light);
+        }
+        
+        .chat-notification-body {
+            font-size: 13px;
+            color: var(--text);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        
+        .chat-notification-btn {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        
         .chat-panel { position: fixed; bottom: 110px; right: 28px; width: 400px; height: 600px; background: white; border-radius: 20px; box-shadow: 0 12px 48px rgba(0,0,0,0.25); display: none; flex-direction: column; z-index: 9999; }
         .chat-panel.open { display: flex; }
-        @media (max-width: 480px) { .chat-panel { bottom: 0; right: 0; left: 0; width: 100%; height: 100%; border-radius: 0; } }
+        @media (max-width: 480px) { 
+            .chat-panel { 
+                bottom: 0; 
+                right: 0; 
+                left: 0; 
+                width: 100%; 
+                height: 100%; 
+                border-radius: 0; 
+            }
+            .chat-notification {
+                right: 20px;
+                bottom: 100px;
+                max-width: calc(100vw - 110px);
+            }
+            .chat-launcher {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
         .chat-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 24px; display: flex; justify-content: space-between; border-radius: 20px 20px 0 0; }
         .chat-close { background: rgba(255,255,255,0.15); border: none; color: white; font-size: 22px; cursor: pointer; width: 36px; height: 36px; border-radius: 8px; }
         .chat-messages { flex: 1; padding: 20px; overflow-y: auto; background: #f8fafb; }
@@ -153,6 +248,18 @@
         <p style="margin-top: 20px; opacity: 0.7;">© 2024 Wellspring Health (Demo) • Created by Edge Studio</p>
     </footer>
     
+    <!-- CHAT NOTIFICATION BUBBLE -->
+    <div class="chat-notification" id="chatNotification">
+        <div class="chat-notification-header">
+            <div class="chat-notification-title">💬 Need help?</div>
+            <button class="chat-notification-close" id="notificationClose">&times;</button>
+        </div>
+        <div class="chat-notification-body">
+            Have questions about our services? I'm here to help!
+        </div>
+        <button class="chat-notification-btn" id="notificationChatBtn">Start Chat</button>
+    </div>
+    
     <!-- CHAT WIDGET -->
     <button class="chat-launcher" id="chatLauncher">
         <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
@@ -221,17 +328,45 @@
         const quick = document.getElementById('quickReplies');
         const calOverlay = document.getElementById('calendarOverlay');
         const calCloseBtn = document.getElementById('calendarCloseBtn');
+        const notification = document.getElementById('chatNotification');
+        const notificationClose = document.getElementById('notificationClose');
+        const notificationChatBtn = document.getElementById('notificationChatBtn');
+        
+        // Detect mobile
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
         
         // Auto-popup after 3 seconds
         setTimeout(() => {
             if (!hasAutoOpened) {
-                panel.classList.add('open');
-                launcher.classList.add('pulse');
+                if (isMobile) {
+                    // On mobile: show notification bubble
+                    notification.classList.add('show');
+                    launcher.classList.add('pulse');
+                } else {
+                    // On desktop: open full chat
+                    panel.classList.add('open');
+                    launcher.classList.add('pulse');
+                }
                 hasAutoOpened = true;
             }
         }, 3000);
         
+        // Notification close button
+        notificationClose.onclick = () => {
+            notification.classList.remove('show');
+            launcher.classList.remove('pulse');
+        };
+        
+        // Notification chat button
+        notificationChatBtn.onclick = () => {
+            notification.classList.remove('show');
+            panel.classList.add('open');
+            launcher.classList.remove('pulse');
+            input.focus();
+        };
+        
         launcher.onclick = () => {
+            notification.classList.remove('show');
             panel.classList.toggle('open');
             launcher.classList.remove('pulse');
             if (panel.classList.contains('open')) input.focus();
@@ -321,3 +456,4 @@
     </script>
 </body>
 </html>
+
